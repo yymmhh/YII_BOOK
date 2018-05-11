@@ -26,10 +26,19 @@ class BaseController extends Controller
 
    
 
+    public function dd($arr)
+    {
+        echo "<pre>";
+        var_dump($arr);
+        echo "<pre>";
+
+    }
+
+
     public function init()
     {
         // parent::init();
-        echo "先";
+//        echo "先";
        
     }
 
@@ -39,9 +48,29 @@ class BaseController extends Controller
         // parent::actions($action);
          
        
-        echo "BaseController";
+//        echo "BaseController";
         return true;
     }
+
+
+    public function json_ok($data)
+    {
+        $arr=[];
+        $arr["status"]="200";
+        $arr["data"]=$data;
+        $arr["error"]=0;
+        return json_encode($arr);
+    }
+
+    public function json_error($data)
+    {
+        $arr=[];
+        $arr["status"]="200";
+        $arr["data"]=$data;
+        $arr["error"]=1;
+        return json_encode($arr);
+    }
+
 
 
     public function data_validate($arr)

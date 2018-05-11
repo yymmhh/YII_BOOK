@@ -11,7 +11,7 @@ class User extends \yii\db\ActiveRecord
     
     public static function tableName()
     {
-        return '{{%users}}';
+        return '{{%user}}';
     }
 
    public function behaviors()  
