@@ -2,17 +2,18 @@
 
 namespace post\modules\user\controllers;
 
+use post\modules\user\models\User;
 use Yii;
 
 use yii\web\Controller;
 use post\base\BaseController;
-use post\modules\user\models\User;
+
 class RegisterController extends BaseController {
 	
 	
 	public function actionIndex() {
 		
-		$arr=['user_email','user_pwd'];
+		$arr=['user_name','user_email','user_pwd'];
 		$data_info= $this->data_validate($arr);
 	
 		
@@ -24,6 +25,7 @@ class RegisterController extends BaseController {
 
     	 $user=new User();
 
+    	 $user->name=$data_info['user_name'];
     	 $user->email=$data_info['user_email'];
     	 $user->password=$password;
     	 $user->salt=$salt;
