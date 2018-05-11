@@ -26,7 +26,18 @@ class Post extends \yii\db\ActiveRecord
                 ],  
             ],  
         ];  
-    }  
+    }
+
+
+    public   function get_validate($user)
+    {
+//        $this->find()->where([''])->one()
+        if($user->toArray()['id']!=$this->toArray()['user_id']){
+            return "false";
+        }else{
+            return "true";
+        }
+    }
 
 
 

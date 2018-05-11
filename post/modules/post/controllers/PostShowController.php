@@ -51,6 +51,13 @@ class PostShowController extends BaseController {
 
 	}
 
+	public  function actionShow()
+    {
+        $request=Yii::$app->request;
+        $id=$request->get('id');
+        $post=Post::find()->where(['id'=>$id])->asArray()->all();
+        $this->dd($post);
+    }
 
 
 }

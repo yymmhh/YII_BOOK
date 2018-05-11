@@ -48,12 +48,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-             //  ['class' => 'yii\rest\UrlRule', 'controller' => 'good'],
-//                 '<controller:\w+>/<action:\w+>' => '<controller>/<action:\w+>',
-                '<controller:\w+>/index/<site_id:\d+>' => '<controller>/index',
-//                 'v1/<controller:\w+>/<action:\w+>' => 'v1/<controller>/<action>',
-//                'OPTIONS v1/auth/logout' => 'v1/auth/logout',
-//                'POST v1/auth/logout'    => 'v1/auth/logout',
+
+
+                '<module:\w+>/<controller:\w+>/<id:\d+>' => '<module>/<controller>/view',
+                '<controller:\w+>/<id:\d+>' => '<controller>/view',
+
             ],
         ],
     ],
