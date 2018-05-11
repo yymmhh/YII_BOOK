@@ -12,9 +12,7 @@ use yii;
 use yii\web\Controller;
 use yii\helpers\ArrayHelper;
 use yii\web\Response;
-use backend\modules\ucenter\models\User;
-use backend\modules\admin\models\Site;
-use backend\modules\ucenter\models\WeixinUser;
+
 
 class BaseController extends Controller
 {

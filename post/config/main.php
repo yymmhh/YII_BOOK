@@ -23,6 +23,7 @@ return [
     'bootstrap' => ['log'],
     'modules' => [
         'user' => ['class' => 'post\modules\user\Module'],
+        'post' => ['class' => 'post\modules\post\Module'],
     ],
     'components' => [
         'user' => [

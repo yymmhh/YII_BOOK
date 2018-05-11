@@ -11,4 +11,6 @@
 
 return [
     'adminEmail' => '908601756@qq.com',
+
+    'pageSize' =>4,  //分页的每页多少个
 ];
