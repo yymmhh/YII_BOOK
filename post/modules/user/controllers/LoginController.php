@@ -35,9 +35,9 @@ class LoginController extends BaseController
             {
                 $session=Yii::$app->session;
                 $session->set("user",$userModel);
-                return  $this->json_ok($user['name']."登陆成功!");
+                return  $this->json_ok($user['name']."登陆成功OK!");
             }else{
-                return  $this->json_error("登陆失败!");
+                return  $this->json_error("登陆失败ERROR!");
             }
 
 
@@ -72,13 +72,6 @@ class LoginController extends BaseController
 
     }
 
-    //测试是否登陆
-    public function  actionIsLogin()
-    {
-        $session=Yii::$app->session;
-        $user= $session->get("user");
-        $this->dd($user);
-        return  $this->json_ok($user->toArray());
-    }
+
 
 }

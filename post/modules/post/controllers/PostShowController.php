@@ -9,7 +9,7 @@ use Yii;
 use yii\data\Pagination;
 use yii\web\Controller;
 use post\base\BaseController;
-class IndexController extends BaseController {
+class PostShowController extends BaseController {
 	
 
 
@@ -22,9 +22,9 @@ class IndexController extends BaseController {
             $page=1;
         }
 
-        $sizeCount=0;
+        $sizeCount=0;   //一共分多少页
         //每页的数量*(浏览页-1)+1
-        $pageSize=Yii::$app->params['pageSize'];
+        $pageSize=Yii::$app->params['pageSize'];   //每页的个数从配置文件读取
         $paindex=$pageSize *($page-1);
 
         $query= Post::find();
@@ -35,11 +35,6 @@ class IndexController extends BaseController {
             $sizeCount=$count / $pageSize ;
         }
 
-
-
-
-
-
         $articles = Post::find()
             ->limit($pageSize)
             ->offset($paindex)
@@ -47,15 +42,15 @@ class IndexController extends BaseController {
             ->all();
 
 
-        $this->dd($articles);
-        $this->dd($sizeCount);
-        $this->dd($page);
+        $data[]=null;
+        $data["data"]=$articles;
+        $data["sizeCount"]=$sizeCount;
+        $data["page"]=$page;
+
+        return $this->json_ok($data);
 
 	}
 
-	public function  actionAdd()
-    {
 
-    }
 
 }

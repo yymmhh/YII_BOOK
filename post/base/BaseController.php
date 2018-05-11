@@ -28,7 +28,7 @@ class BaseController extends Controller
     {
         echo "<pre>";
         var_dump($arr);
-        echo "<pre>";
+        echo "</pre>";
 
     }
 
@@ -89,6 +89,26 @@ class BaseController extends Controller
         }
 
         return $data;
+    }
+
+    //获取用户信息
+    public function  user_Info()
+    {
+        $session=Yii::$app->session;
+        $user= $session->get("user");
+        return  $user;
+    }
+
+    //判断是否登陆
+    public function is_login()
+    {
+        $session=Yii::$app->session;
+        $user= $session->get("user");
+        if($user!=null){
+            return  true;
+        }else{
+            return false;
+        }
     }
 
 }

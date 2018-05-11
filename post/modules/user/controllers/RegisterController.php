@@ -19,6 +19,11 @@ class RegisterController extends BaseController {
             $arr=['user_name','user_email','user_pwd'];
             $data_info= $this->data_validate($arr);
 
+            if($data_info=="false")
+            {
+                return $this->json_error("参数不全");
+            }
+
 
 
             $salt = '$2y$11$' . substr(md5(uniqid(rand(), true)), 0, 22);
